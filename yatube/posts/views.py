@@ -8,6 +8,11 @@ def index(request):
     return render(request, template)
 
 
+def group_list(request):
+    template = 'posts/group_list.html'
+    return render(request, template)
+
+
 # Фильтрация по группам
 def group_posts(request, slug):
     return HttpResponse(f'Посты отфильтрованы по группам {slug}')
