@@ -1,20 +1,22 @@
-from django.shortcuts import HttpResponse
+# from django.shortcuts import HttpResponse
 from django.shortcuts import render
 
 
 # Главная страница
 def index(request):
     template = 'posts/index.html'
-    return render(request, template)
-
-
-def group_list(request):
-    template = 'posts/group_list.html'
-    return render(request, template)
+    context = {
+        'text': 'Это главная страница проекта Yatube'
+    }
+    return render(request, template, context)
 
 
 # Фильтрация по группам
-def group_posts(request, slug):
-    return HttpResponse(f'Посты отфильтрованы по группам {slug}')
+def group_posts(request):
+    template = 'posts/group_list.html'
+    context = {
+        'text': 'Здесь будет информация о группах проекта Yatube'
+    }
+    return render(request, template, context)
 
 # Create your views here.
